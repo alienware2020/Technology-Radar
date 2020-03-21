@@ -1,0 +1,70 @@
+<div class="row content mx-0">
+    <div class="col-5 transition pt-4" *ngIf="!showExpandedChart">
+        <div class='file-input'>
+            <input type="file" (change)="onFileChange($event)" />
+            <!-- <input type='file'> -->
+            <span class='button'>Choose</span>
+            <span class='label' #fileLabel>Select excel to view chart</span>
+        </div>
+        <div class="or">
+            - or -
+        </div>
+        <div>
+            <table class="form-content">
+                <thead>
+                    <tr>
+                        <th>ASP</th>
+                        <th>Category</th>
+                        <th>Maturity</th>
+                        <th>Technology</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of inputData; let odd=odd; let even=even;"
+                        [ngClass]="{ odd: odd, even: even }">
+                        <td><input [(ngModel)]="data.ASP" placeholder="Enter ASP"
+                                [ngClass]="{invalid: formSubmitted && data.ASP == ''}" class="form-control"></td>
+                        <td><input [(ngModel)]="data.Category" placeholder="Enter Category.."
+                                [ngClass]="{invalid: formSubmitted && data.Category == ''}" class="form-control"></td>
+                        <td><input [(ngModel)]="data.Maturity" placeholder="Enter Maturity.."
+                                [ngClass]="{invalid: formSubmitted && data.Maturity == ''}" class="form-control"></td>
+                        <td><input [(ngModel)]="data.Technology" placeholder="Enter Technology.."
+                                [ngClass]="{invalid: formSubmitted && data.Technology == ''}" class="form-control">
+                        </td>
+                        <td>
+                            <span (click)="remove(data)" class="cursor-pointer"><i
+                                    class="fas fa-trash remove"></i></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="p-3 text-right bg-white">
+                            <button (click)="addItem()" class="btn btn-primary-outline mr-2">Add</button>
+                            <button type="submit" (click)="renderChart()" class="btn btn-primary">Show Chart</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
+    </div>
+    <div class="col transition chart-container">
+        <div class="expand text-right pt-4 pr-4" *ngIf="graphLoaded">
+            <span (click)="toggleChartExpandedView()" class="cursor-pointer"><i class="fas"
+                    [ngClass]="showExpandedChart? 'fa-compress' : 'fa-expand'"></i></span>
+        </div>
+        <div *ngIf="!graphLoaded" class="graph-placeholder">
+            <img src="../../assets/images/graph.svg" alt="">
+            <div>
+                <div class="heading">Select a file</div>
+                <div class="sub-heading">- or -</div>
+                <div class="heading">Add data to view the chart</div>
+            </div>
+        </div>
+        <div>
+            <div id="sunburst" class="sunburst">
+                <div #chart id="chart"></div>
+            </div>
+        </div>
+    </div>
+</div>
