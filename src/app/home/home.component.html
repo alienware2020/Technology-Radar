@@ -1,5 +1,5 @@
 <div class="row content mx-0">
-    <div class="col-5 transition pt-4" *ngIf="!showExpandedChart">
+    <div class="col-md-5 col-sm-12 col-xs-12 pt-4" *ngIf="!showExpandedChart">
         <div class='file-input'>
             <input type="file" (change)="onFileChange($event)" />
             <!-- <input type='file'> -->
@@ -9,8 +9,8 @@
         <div class="or">
             - or -
         </div>
-        <div>
-            <table class="form-content">
+        <div class="form-content">
+            <table>
                 <thead>
                     <tr>
                         <th>ASP</th>
@@ -48,7 +48,7 @@
         </div>
         <br>
     </div>
-    <div class="col transition chart-container">
+    <div class="chart-container" [ngClass]="showExpandedChart? 'col' : 'col-md-7 col-sm-12 col-xs-12'">
         <div class="expand text-right pt-4 pr-4" *ngIf="graphLoaded">
             <span (click)="toggleChartExpandedView()" class="cursor-pointer"><i class="fas"
                     [ngClass]="showExpandedChart? 'fa-compress' : 'fa-expand'"></i></span>
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div>
-            <div id="sunburst" class="sunburst">
+            <div id="sunburst" class="sunburst transition">
                 <div #chart id="chart"></div>
             </div>
         </div>

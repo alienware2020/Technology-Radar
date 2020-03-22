@@ -1,7 +1,7 @@
 @import "../../styles.scss";
 
 .content {
-  margin-top: 60px;
+  padding-top: 60px;
   height: 100%;
   position: absolute;
   width: 100%;
@@ -11,6 +11,7 @@
 
 .chart-container {
   background-color: white;
+  padding-top: 20px;
   border-left: 1px solid #e1e1e1;
 }
 .sunburst {
@@ -19,11 +20,11 @@
 }
 
 .form-content {
-  width: 80%;
+  max-width: 90%;
   font-size: 0.8rem;
   margin: 0 auto;
   border-radius: 0.25rem;
-  overflow: hidden;
+  overflow: auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   th {
@@ -62,12 +63,12 @@
 
 .file-input {
   text-align: center;
-  margin: 20px auto;
+  margin:40px auto 20px;
   //   display: inline-block;
   text-align: left;
   background: #fff;
   padding: 16px;
-  width: 450px;
+  max-width: 300px;
   position: relative;
   border-radius: 0.25rem;
   border: 1.5px dashed #c8c8c8;
@@ -89,7 +90,7 @@
     background: $color-teal;
     padding: 8px 16px;
     border-radius: 0.25rem;
-    margin-right: 8px;
+    margin-right: 13px;
     color: white;
     font-size: 0.8rem;
   }
@@ -193,7 +194,22 @@
   }
 
   img {
-    width: 30%;
-    margin: 10% 0 20px;
+    width: 50%;
+    margin: 15% 0 20px;
+    filter: opacity(0.8);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .form-content {
+    max-width: 450px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  /* For mobile phones: */
+  .form-content {
+    max-width: 300px;
   }
 }

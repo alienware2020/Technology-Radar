@@ -14,6 +14,40 @@ body {
   border: none;
 }
 
-.bg-white{
-    background-color: #ffffff;
+.bg-white {
+  background-color: #ffffff;
+}
+
+@font-face {
+  font-family: "custom";
+  src: url("/assets/fonts/custom.eot?6h6mab");
+  src: url("/assets/fonts/custom.eot?6h6mab#iefix") format("embedded-opentype"),
+    url("/assets/fonts/custom.ttf?6h6mab") format("truetype"), url("/assets/fonts/custom.woff?6h6mab") format("woff"),
+    url("/assets/fonts/custom.svg?6h6mab#custom") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="tr-"],
+[class*=" tr-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "custom" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tr-radar1:before {
+  content: "\e901";
+}
+.tr-radar:before {
+  content: "\e900";
 }

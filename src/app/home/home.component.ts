@@ -192,7 +192,7 @@ export class HomeComponent {
         svg.append('g')
             .attr('pointer-events', 'none')
             .attr('text-anchor', 'middle')
-            .attr('font-size', 10)
+            .attr('font-size', 14)
             .attr('font-family', 'sans-serif')
             .selectAll('text')
             .data(root.descendants().filter(d => d.depth && (d.y0 + d.y1) / 2 * (d.x1 - d.x0) > 10))
